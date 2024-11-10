@@ -30,6 +30,7 @@ const uint8_t FIN_FLAG = 1;
 const uint8_t SYN_FLAG = 2;
 const uint8_t ACK_FLAG = 16;
 const uint8_t SYN_ACK_FLAG = SYN_FLAG | ACK_FLAG;
+const uint8_t FIN_ACK_FLAG = FIN_FLAG | ACK_FLAG;
 
 /**
  * Generate Segment that contain SYN packet

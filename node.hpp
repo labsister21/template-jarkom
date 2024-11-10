@@ -15,7 +15,7 @@ protected:
 
 public:
     void run();
-    virtual void handleMessage(Segment segment) = 0;
+    virtual void handleMessage(void *buffer) = 0;
 };
 
 #endif

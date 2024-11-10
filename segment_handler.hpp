@@ -9,7 +9,7 @@ private:
     uint8_t windowSize;
     uint32_t currentSeqNum;
     uint32_t currentAckNum;
-    uint8_t *dataStream;
+    void *dataStream;
     uint32_t dataSize;
     uint32_t dataIndex;
     Segment *segmentBuffer; // or use std vector if you like

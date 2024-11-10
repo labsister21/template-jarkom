@@ -9,8 +9,25 @@
 
 using namespace std;
 
+// for references
+// https://maxnilz.com/docs/004-network/003-tcp-connection-state/
+// You can use a different state enum if you'd like
+enum TCPStatusEnum
+{
+    LISTEN = 0,
+    SYN_SENT = 1,
+    SYN_RECEIVED = 2,
+    ESTABLISHED = 3,
+    FIN_WAIT_1 = 4,
+    FIN_WAIT_2 = 5,
+    CLOSE_WAIT = 6,
+    CLOSING = 7,
+    LAST_ACK = 8
+};
+
 class TCPSocket
 {
+    // todo add tcp connection state?
 private:
     /**
      * The ip address and port for the socket instance
@@ -24,17 +41,15 @@ private:
      */
     int32_t socket;
 
-    function<void(Segment)> handler;
-
     SegmentHandler *segmentHandler;
 
-    void notify();
+    TCPStatusEnum status;
 
 public:
-    void send(string ip, int32_t port);
     void listen();
+    void send(string ip, int32_t port, void *dataStream, uint32_t dataSize);
+    int32_t recv(void *buffer, uint32_t length);
     void close();
-    void registerHandler(function<void(Segment)> handler);
 };
 
 #endif
