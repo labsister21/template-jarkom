@@ -11,13 +11,13 @@ struct Segment
 
     struct
     {
-        unsigned int data_offset : 4;
-        unsigned int reserved : 4;
+        uint8_t data_offset : 4;
+        uint8_t reserved : 4;
     };
 
     struct
     {
-        unsigned int cwr : 1;
+        uint8_t cwr : 1;
         // todo continue ...
     } flags;
 
